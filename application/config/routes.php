@@ -54,38 +54,36 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['']                      = 'main/index';
 
-$route['admin']                 = 'admin/login';
-$route['admin/dashboard']       = 'admin/dashboard';
-$route['admin/signin']          = 'admin/signin';
-$route['admin/signout']         = 'admin/signout';
-$route['admin/login']           = 'admin/login';
-$route['admin/register']        = 'admin/register';
-$route['admin/forgot_password'] = 'admin/forgot_password';
+$route['admin']                 = 'adminController/login';
+$route['admin/dashboard']       = 'adminController/dashboard';
+$route['admin/signin']          = 'adminController/signin';
+$route['admin/signout']         = 'adminController/signout';
+$route['admin/login']           = 'adminController/login';
+$route['admin/register']        = 'adminController/register';
+$route['admin/forgot_password'] = 'adminController/forgot_password';
 
-$route['admin/staffs']          = 'staff/index';
-$route['admin/staff/(:num)']    = 'staff/staff/$1';
-$route['admin/handle_staff']    = 'staff/handle_staff';
+$route['admin/staffs']          = 'staffController/index';
+$route['admin/staff/(:num)']    = 'staffController/staff/$1';
+$route['admin/handle_staff']    = 'staffController/handle_staff';
 
-$route['admin/authors']         = 'author/index';
-$route['admin/author/(:num)']   = 'author/author/$1';
-$route['admin/handle_author']   = 'author/handle_author';
+$route['admin/authors']         = 'authorController/index';
+$route['admin/author/(:num)']   = 'authorController/author/$1';
+$route['admin/handle_author']   = 'authorController/handle_author';
 
-$route['admin/genres']          = 'genre/index';
-$route['admin/genre/(:num)']    = 'genre/genre/$1';
-$route['admin/handle_genre']    = 'type/handle_genre';
+$route['admin/genres']          = 'genreController/index';
+$route['admin/genre/(:num)']    = 'genreController/genre/$1';
+$route['admin/handle_genre']    = 'genreController/handle_genre';
 
-$route['admin/types']           = 'type/index';
-$route['admin/type/(:num)']     = 'type/type/$1';
-$route['admin/handle_type']     = 'type/handle_type';
+$route['admin/types']           = 'typeController/index';
+$route['admin/type/(:num)']     = 'typeController/type/$1';
+$route['admin/handle_type']     = 'typeController/handle_type';
 
-$route['admin/books']           = 'comic/index';
-$route['admin/book/(:num)']     = 'comic/comic/$1';
-$route['admin/handle_book']     = 'type/handle_book';
+$route['admin/books']           = 'bookController/index';
+$route['admin/book/(:num)']     = 'bookController/comic/$1';
+$route['admin/handle_book']     = 'bookController/handle_book';
 
-$route['admin/statuses']        = 'status/index';
-$route['admin/status/(:num)']   = 'status/status/$1';
-$route['admin/handle_status']   = 'status/handle_status';
+$route['admin/statuses']        = 'statusController/index';
+$route['admin/status/(:num)']   = 'statusController/status/$1';
+$route['admin/handle_status']   = 'statusController/handle_status';
 
-$route['admin/users']           = 'user/index';
-$route['admin/user/(:num)']     = 'user/user/$1';
-$route['admin/handle_user']     = 'user/handle_user';
+$route['admin/options']   = 'optionsController/index';

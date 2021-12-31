@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Admin extends MY_Controller {
+class AdminController extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 	}
@@ -11,11 +11,11 @@ class Admin extends MY_Controller {
 		if ($signin) {
 			foreach ($signin as $row) {
 				$newdata = array(
-					'id_staff'			=> $row['id_staff'],
-					'name_staff' 		=> $row['name_staff'],
-					'gmail_staff' 		=> $row['gmail_staff'],
-					'password_staff' 	=> $row['password_staff'],
-					'avatar_staff' 		=> $row['avatar_staff'],
+					'id'				=> $row['id'],
+					'username' 			=> $row['username'],
+					'gmail' 			=> $row['gmail'],
+					'password' 			=> $row['password'],
+					'profile_picture' 	=> $row['profile_picture'],
 				);
 				$this->session->set_userdata($newdata);
 			}
@@ -41,11 +41,11 @@ class Admin extends MY_Controller {
 	}
 	public function dashboard() {
 		$data['dashboard'] = 'active';
-		if ($this->session->userdata('id_staff') != '') {
-			$giaodien['sidebar'] = $this->load->view('admin/includes/sidebar', $data, TRUE);
-			$giaodien['topbar'] = $this->load->view('admin/includes/topbar', '', TRUE);
-			$giaodien['content'] = $this->load->view('admin/dashboard', NULL, TRUE);
-			$giaodien['footer'] = $this->load->view('admin/includes/footer', NULL, TRUE);
+		if ($this->session->userdata('id') != '') {
+			$giaodien['sidebar'] 	= $this->load->view('admin/includes/sidebar', $data, TRUE);
+			$giaodien['topbar'] 	= $this->load->view('admin/includes/topbar', '', TRUE);
+			$giaodien['content'] 	= $this->load->view('admin/dashboard', NULL, TRUE);
+			$giaodien['footer'] 	= $this->load->view('admin/includes/footer', NULL, TRUE);
 			$this->load->view('admin/includes/index', $giaodien);
 		} else {
 			redirect('admin/login');

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Staff extends MY_Controller {
+class StaffController extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 	}
@@ -73,8 +73,8 @@ class Staff extends MY_Controller {
 	}
 	public function staff_add() {
 		$data = array(
-			'gmail_staff'	=> $this->input->post('gmail'),
-			'password_staff' => md5($this->input->post('password')),
+			'gmail'	=> $this->input->post('gmail'),
+			'password' => md5($this->input->post('password')),
 		);
 		$check = $this->staff_model->add_staff($data);
 		redirect('admin/staffs');

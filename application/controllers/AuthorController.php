@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Author extends MY_Controller {
+class AuthorController extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 	}

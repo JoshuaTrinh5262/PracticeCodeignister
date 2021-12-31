@@ -9,6 +9,13 @@
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
+  <li class="nav-item <?php echo isset($options) ? "active" : "";  ?>">
+    <a class="nav-link" href="<?php echo base_url(); ?>admin/options">
+      <i class="fas fa-fw fa-book"></i>
+      <span>Settings</span></a>
+  </li>
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0">
   <li class="nav-item <?php echo isset($books) ? "active" : "";  ?>">
     <a class="nav-link" href="<?php echo base_url(); ?>admin/books">
       <i class="fas fa-fw fa-book"></i>
@@ -37,12 +44,6 @@
     <a class="nav-link" href="<?php echo base_url(); ?>admin/types">
       <i class="fas fa-fw fa-user"></i>
       <span>TYPES</span></a>
-  </li>
-  <!-- Nav Item - Users -->
-  <li class="nav-item <?php echo isset($users) ? "active" : "";  ?>">
-    <a class="nav-link" href="<?php echo base_url(); ?>admin/users">
-      <i class="fas fa-fw fa-user"></i>
-      <span>USERS</span></a>
   </li>
     <!-- Nav Item - STAFFS -->
     <li class="nav-item <?php echo isset($staffs) ? "active" : "";  ?>">

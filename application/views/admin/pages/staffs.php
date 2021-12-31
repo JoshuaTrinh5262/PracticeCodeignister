@@ -30,12 +30,12 @@
             <tbody>
               <?php foreach ($staffs as $staff) : ?>
                 <tr>
-                  <td><?php echo $staff['id_staff'] ?></td>
-                  <td><?php echo $staff['name_staff'] ?></td>
-                  <td><?php echo $staff['gmail_staff'] ?></td>
-                  <td><?php echo $staff['password_staff'] ?></td>
+                  <td><?php echo $staff['id'] ?></td>
+                  <td><?php echo $staff['username'] ?></td>
+                  <td><?php echo $staff['gmail'] ?></td>
+                  <td><?php echo $staff['password'] ?></td>
                   <td>
-                    <a type="button" href="<?php echo base_url(); ?>admin/staff/<?php echo $staff['id_staff'] ?>" class="btn btn-primary btn-sm">Detail</a>
+                    <a type="button" href="<?php echo base_url(); ?>admin/staff/<?php echo $staff['id'] ?>" class="btn btn-primary btn-sm">Detail</a>
                     <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" data-target="#update">Edit</button>
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                   </td>
@@ -83,19 +83,19 @@
     <div class="modal-content">
       <form action="" method="post" enctype="multipart/form-data">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Author</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Update Staff</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Author Name</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Author name">
+            <label>Staff Name</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Staff name">
           </div>
           <div class="form-group">
-            <label>Author Discription</label>
-            <textarea type="text" class="form-control" id="description" name="description" placeholder="Author Description"></textarea>
+            <label>Staff Discription</label>
+            <textarea type="text" class="form-control" id="description" name="description" placeholder="Staff Description"></textarea>
           </div>
         </div>
         <div class="modal-footer">

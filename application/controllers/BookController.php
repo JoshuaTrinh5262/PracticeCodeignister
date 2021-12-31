@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Comic extends MY_Controller {
+class BookController extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 	}
@@ -84,5 +84,9 @@ class Comic extends MY_Controller {
 				}
 			}
 		}
+	}
+	public function read_file() {
+		$MyFile = file_get_contents("asset/comic");
+  		var_dump($MyFile);
 	}
 }
