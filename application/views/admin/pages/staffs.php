@@ -30,12 +30,12 @@
             <tbody>
               <?php foreach ($staffs as $staff) : ?>
                 <tr>
-                  <td><?php echo $staff['id_staff'] ?></td>
-                  <td><?php echo $staff['name_staff'] ?></td>
-                  <td><?php echo $staff['gmail_staff'] ?></td>
-                  <td><?php echo $staff['password_staff'] ?></td>
+                  <td><?php echo $staff['id'] ?></td>
+                  <td><?php echo $staff['username'] ?></td>
+                  <td><?php echo $staff['gmail'] ?></td>
+                  <td><?php echo $staff['password'] ?></td>
                   <td>
-                    <a type="button" href="<?php echo base_url(); ?>admin/staff/<?php echo $staff['id_staff'] ?>" class="btn btn-primary btn-sm">Detail</a>
+                    <a type="button" href="<?php echo base_url(); ?>admin/staff/<?php echo $staff['id'] ?>" class="btn btn-primary btn-sm">Detail</a>
                     <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" data-target="#update">Edit</button>
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                   </td>
@@ -52,8 +52,9 @@
 <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="<?php echo base_url(); ?>admin/staff_add" method="post" enctype="multipart/form-data">
-        <div class="modal-header">
+      <!-- <form id="staff_add" action="<?php echo base_url(); ?>admin/staff_add" method="post" enctype="multipart/form-data"> -->
+      <form id="staff_add" action="" method="post" enctype="multipart/form-data">
+      <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Add New Staff</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
@@ -61,12 +62,22 @@
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Gmail</label>
+            <label>Staff Gmail</label>
             <input type="text" class="form-control" id="gmail" name="gmail" placeholder="gmail">
           </div>
           <div class="form-group">
-            <label>Password</label>
+            <label>Staff Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label>Staff Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Firstname">
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Lastname">
+          </div>
+          
+          <div class="form-group">
+            <label>Role</label>
+            <input type="text" class="form-control" id="role" name="role" placeholder="Role" value="1">
           </div>
         </div>
         <div class="modal-footer">
@@ -83,19 +94,19 @@
     <div class="modal-content">
       <form action="" method="post" enctype="multipart/form-data">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Update Author</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Update Staff</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group">
-            <label>Author Name</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder="Author name">
+            <label>Staff Name</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Staff name">
           </div>
           <div class="form-group">
-            <label>Author Discription</label>
-            <textarea type="text" class="form-control" id="description" name="description" placeholder="Author Description"></textarea>
+            <label>Staff Discription</label>
+            <textarea type="text" class="form-control" id="description" name="description" placeholder="Staff Description"></textarea>
           </div>
         </div>
         <div class="modal-footer">
@@ -106,3 +117,34 @@
     </div>
   </div>
 </div>
+<script>
+  $(document).ready(function(){
+      $('#staff_add').on('submit', function (e) {
+        e.preventDefault();
+        var gmail = $("#gmail").val();
+        var password = $("#password").val();
+        var firstname = $("#firstname").val();
+        var lastname = $("#lastname").val();
+        var role = $("#role").val();
+        $.ajax({
+            type: "POST",
+            url: "staff/staff_add",
+            data: {
+              gmail : gmail,
+              password : password,
+              firstname : firstname,
+              lastname : lastname, 
+              role : role,
+            },
+            success: function(data) {
+                console.log(data);
+                $('#CompanyProfile').modal('hide');
+                $('#dataTable').DataTable().ajax.reload();
+            },
+            error: function(error) {
+              console.log(error);
+            },
+      });
+    });
+  });
+</script>
