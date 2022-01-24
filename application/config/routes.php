@@ -62,9 +62,11 @@ $route['admin/login']           = 'adminController/login';
 $route['admin/register']        = 'adminController/register';
 $route['admin/forgot_password'] = 'adminController/forgot_password';
 
-$route['admin/staffs']          = 'staffController/index';
+$route['admin/staff']           = 'staffController/index';
 $route['admin/staff/(:num)']    = 'staffController/staff/$1';
 $route['admin/handle_staff']    = 'staffController/handle_staff';
+$route['admin/staff/staff_add'] = 'staffController/staff_add';
+
 
 $route['admin/authors']         = 'authorController/index';
 $route['admin/author/(:num)']   = 'authorController/author/$1';

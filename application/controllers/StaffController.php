@@ -72,11 +72,19 @@ class StaffController extends MY_Controller {
 		}
 	}
 	public function staff_add() {
-		$data = array(
-			'gmail'	=> $this->input->post('gmail'),
-			'password' => md5($this->input->post('password')),
-		);
-		$check = $this->staff_model->add_staff($data);
-		redirect('admin/staffs');
+		if ($this->input->post()) {
+			$message = '';
+			$check = $this->staff_model->add_staff($this->input->post());
+			if($check) {
+				$message = "add successfully";
+				set_alert('success', $message);
+				redirect('admin/staff');
+			}
+			echo json_encode([
+				'success' => $success,
+				'message' => $message,
+			]);
+		}
+		die;
 	}
 }
